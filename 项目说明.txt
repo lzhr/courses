@@ -1,0 +1,44 @@
+使用Spring与Hibernate
+（通过配置web.xml文件，可以替换数据库MySQL或SQLite）
+(context.xml配置连接mysql的参数）
+实现对课程、学生、教师的基本CRUD操作，
+
+教务处添加课程和学生选课都可以实现
+
+学生与课程、课程与教师 的关系都是多对多，
+学生选课的同时，在课程的多个代课老师中，选定自己的任课老师。
+
+登录功能不完善
+
+URL地址--Method---Controller--Function功能
+[/admin/{aid}]--[]------AdminController--index
+[/admin/{aid}/course]--[]----courselist
+[/admin/{aid}/course/add || /admin/{aid}/addcourse]--[POST]------addCourse
+[/admin/{aid}/course/add || /admin/{aid}/addcourse]--[GET]------addCourse
+[/admin/{aid}/course/{cid} || /admin/{aid}/c{cid}]--[GET]------editCourse
+[/admin/{aid}/course/{cid} || /admin/{aid}/c{cid}]--[POST]-------doeditCourse
+[/admin/{aid}/student]--[]------studentList
+[/admin/{aid}/student/add || /admin/{aid}/addstudent]--[GET]----addstudent
+[/admin/{aid}/student/add || /admin/{aid}/addstudent]--[POST]--addStudent
+[/admin/{aid}/student/edit/{sid}]--[GET]------editStudent
+[/admin/{aid}/student/edit/{sid}]--[POST]-------editstudent
+[/admin/{aid}/student/delete]--[]------deletestudent
+[/admin/{aid}/teacher]--[]----teachers
+[/admin/{aid}/teacher/delete]--[]--------deleteTeacher
+
+[/login]--[GET]------LoginController--login
+[/login]--[POST]----dologin
+[/admin || /teacher || /student || /course]--[GET]-------re
+
+[/student/{sid}]--[]------StudentController--index
+[/student/{sid}/info]--[]-------info
+[/student/{sid}/courses]--[]-----courses
+[/student/{sid}/courses/select]--[GET]-------selectcourse
+[/student/{sid}/courses/select]--[POST]-------selectcourse
+
+[/teacher/{tid}]--[]------TeacherController--index
+[/teacher/{tid}/course/c{cid} || /teacher/{tid}/c{cid}]--[]-------editCourse
+[/teacher/{tid}/course/c{cid} || /teacher/{tid}/c{cid}]--[POST]-------doeditCourse
+[/teacher/{tid}/course]--[]-------teach
+
+[/url]--[]------URLC--list
